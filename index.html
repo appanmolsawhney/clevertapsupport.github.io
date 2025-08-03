@@ -4,107 +4,283 @@
   <meta charset="UTF-8">
   <title>CleverTap Support Apps Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <!-- Inter Font & FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- HEADER -->
   <header class="main-header">
-    <img src="clevertap-logo.png" alt="CleverTap Logo" class="logo">
-    <span class="support-team-text">Global Support Team</span>
+    <div class="logo-block">
+      <a href="https://clevertap.com/" target="_blank">
+        <img src="clevertap-logo.png" alt="CleverTap Logo" class="logo">
+      </a>
+      <span class="support-team-text blue">Global Support Team</span>
+    </div>
+    <a href="https://help.clevertap.com/hc/en-us" target="_blank" class="help-center-btn">
+      <i class="fa-solid fa-circle-question"></i> Help Center
+    </a>
   </header>
-  <div class="main-box">
-    <h1>CleverTap Support Apps Hub</h1>
-    <p class="subtitle">
-      AI powered World Class B2B Support Experience through on-point service delivery, backed by customer advocacy.
-    </p>
-
-    <section class="metrics-section">
-      <div class="metric-card">
-        <div class="metric-value counter" data-target="98">0%</div>
-        <div class="metric-name">CSAT Score</div>
-        <div class="metric-description">Customer satisfaction</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value counter" data-target="19">0%</div>
-        <div class="metric-name">Survey Rate</div>
-        <div class="metric-description">Survey participation by customers</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value counter" data-target="5.2">0</div>
-        <div class="metric-name">Requester Wait Time</div>
-        <div class="metric-description">Average Time in biz hrs a query was waiting on CleverTap</div>
-      </div>
-    </section>
-
-    <section class="reviews-section">
-      <div class="testimonial-card">
-        <div class="testimonial-quote">
-          "The best experience I've had so far with troubleshooting a ticket. Timely responses, thorough explanation, and true interest in helping out. Anurag even booked a call where he patiently walked me through the logic of how CleverTap system works. Great service!"
+  <main class="main-content">
+    <h2 class="main-metrics-h2 fade-in-up">Current Support Metrics of 2000+ Customers: 2025</h2>
+    <!-- KPIs -->
+    <section class="metrics-section fade-in-up" id="metrics">
+      <div class="kpi-cards">
+        <div class="glass-card metric-card fade-in-up" tabindex="0">
+          <div class="metric-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="metric-value counter" data-target="98">0%</div>
+          <div class="metric-name">CSAT Score</div>
+          <div class="metric-description">Customer Satisfaction Score</div>
         </div>
-        <div class="testimonial-meta">
-          <span class="testimonial-date">Jun 2025</span>
-          <span class="testimonial-customer">CleverTap Customer</span>
+        <div class="glass-card metric-card fade-in-up" tabindex="0">
+          <div class="metric-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div class="metric-value counter" data-target="19">0%</div>
+          <div class="metric-name">Survey Rate</div>
+          <div class="metric-description">CSAT Survey Response Rate</div>
+        </div>
+        <div class="glass-card metric-card fade-in-up" tabindex="0">
+          <div class="metric-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="metric-value counter" data-target="5">0</div>
+          <div class="metric-name">Requester Wait Time</div>
+          <div class="metric-description">Avg. biz hrs a query was waiting on CleverTap</div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">
-          "Quick understanding and effective solution. My issue was resolved within a day."
-        </div>
-        <div class="testimonial-meta">
-          <span class="testimonial-date">Jun 2025</span>
-          <span class="testimonial-customer">CleverTap Customer</span>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">
-          "Sincere gratitude for the exceptional support. Real people who really care!"
-        </div>
-        <div class="testimonial-meta">
-          <span class="testimonial-date">Jul 2025</span>
-          <span class="testimonial-customer">CleverTap Customer</span>
+      <div class="after-metrics centered-metrics">
+        <div class="apps-hub-title centered-metrics">CleverTap Support Apps Hub</div>
+        <div class="apps-hub-desc centered-metrics">AI powered World Class B2B Support experience by delivering on point service, backed by customer advocacy.</div>
+        <div class="button-bar center-bar">
+          <a class="big-btn get-support" href="https://help.clevertap.com/hc/en-us" target="_blank">
+            <i class="fa-solid fa-headset"></i> Get Support
+          </a>
+          <a class="big-btn browse-apps" href="#customer-apps">
+            <i class="fa-solid fa-th"></i> Browse Apps
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="apps-section">
-      <h2>Support Apps</h2>
-      <div class="buttons-list">
-        <a class="btn" href="https://help.clevertap.com/hc/en-us" target="_blank">Get Support</a>
-        <a class="btn" href="https://supportconnect.clevertap.com/" target="_blank">Call Scheduler</a>
-        <span class="btn btn-disabled" tabindex="-1">AI Ticket Summarizer (Coming Soon)</span>
-        <span class="btn btn-disabled" tabindex="-1">AI Notetaker (Coming Soon)</span>
+    <div class="section-gap"></div>
+
+    <!-- Reviews -->
+    <section class="reviews-section fade-in-up" id="voices">
+      <div class="section-heading big">Customer Voices</div>
+      <div class="review-subheading big">Hear from our valued customers about their exceptional support experience</div>
+      <div class="reviews-area">
+        <div class="reviews-row reviews-large center-row">
+          <div class="glass-card review-blurb fade-in-up" tabindex="0">
+            <div class="review-text">"The best experience I've had so far with troubleshooting a ticket. Timely responses, thorough explanation, and more importantly true interest in helping out. Anurag even booked a call where he patiently walk me through the logic of how CleverTap system works. Great service!"</div>
+            <div class="review-meta-row tight">
+              <i class="fa fa-user person-icon"></i>
+              <span class="meta-customer">CleverTap Customer</span>
+              <span class="review-date">Jun 2025</span>
+              <i class="fa fa-thumbs-up thumbs-up"></i>
+            </div>
+          </div>
+          <div class="glass-card review-blurb fade-in-up" tabindex="0">
+            <div class="review-text">Aditya quickly understood the issue I was facing. He asked the right questions and got back to me with an appropriate solution. It worked, and my issue was resolved within a day.</div>
+            <div class="review-meta-row tight">
+              <i class="fa fa-user person-icon"></i>
+              <span class="meta-customer">CleverTap Customer</span>
+              <span class="review-date">Jun 2025</span>
+              <i class="fa fa-thumbs-up thumbs-up"></i>
+            </div>
+          </div>
+          <div class="glass-card review-blurb fade-in-up" tabindex="0">
+            <div class="review-text">I wanted to take a moment to express my sincere gratitude for the exceptional support I've received from your team. Every interaction has been handled with professionalism, kindness, and efficiency. It's a relief to know there are real people behind the responses who truly care.</div>
+            <div class="review-meta-row tight">
+              <i class="fa fa-user person-icon"></i>
+              <span class="meta-customer">CleverTap Customer</span>
+              <span class="review-date">Jul 2025</span>
+              <i class="fa fa-thumbs-up thumbs-up"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      &copy; 2025 CleverTap. All rights reserved.
-    </footer>
+    <div class="section-gap"></div>
+
+    <!-- CUSTOMER FACING APPS -->
+    <section class="apps-section fade-in-up" id="customer-apps">
+      <div class="apps-section-header centered">
+        <span class="section-heading main-title">Customer Facing Apps</span>
+        <div class="available-pills-row">
+          <div class="app-section-note available-all centered">
+            <span class="status-dot green"></span>
+            Available to all users
+          </div>
+        </div>
+        <div class="app-section-subtitle centered">Self-service applications for our valued customers</div>
+      </div>
+      <div class="apps-list two-col">
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon blue rounded"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="app-name">Call Scheduler</div>
+            <div class="app-desc">Book calls with your support engineer via ticket ID.</div>
+            <!-- Only this "Launch App" is clickable (as per new hyperlink) -->
+            <a href="https://supportconnect.clevertap.com/" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card disabled fade-in-up">
+          <div class="app-icon purple rounded"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <div class="app-name">AI Ticket Summarizer <span class="soon">(Coming Soon)</span></div>
+            <div class="app-desc">Get a concise AI summary of your ticket post-resolution.</div>
+            <span class="launch-btn disabled">Coming soon</span>
+          </div>
+        </div>
+        <div class="glass-card app-card disabled fade-in-up">
+          <div class="app-icon green rounded"><i class="fa-solid fa-pen-to-square"></i></div>
+          <div>
+            <div class="app-name">AI Notetaker <span class="soon">(Coming Soon)</span></div>
+            <div class="app-desc">Automated MoMs for support calls with our engineers.</div>
+            <span class="launch-btn disabled">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-gap"></div>
+
+    <!-- INTERNAL APPS -->
+    <section class="apps-section fade-in-up" id="internal-apps">
+      <div class="apps-section-header centered">
+        <span class="section-heading main-title">CleverTap Internal Apps</span>
+        <div class="available-pills-row">
+          <div class="app-section-note employees-only centered">
+            <i class="fa-solid fa-lock"></i> Available only for CleverTap employees
+          </div>
+        </div>
+        <div class="app-section-subtitle centered">Applications built to optimize operations for CleverTap employees</div>
+      </div>
+      <div class="apps-list two-col">
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon orange rounded"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <div class="app-name">Auto Triager</div>
+            <div class="app-desc">Automatically route/triage support tickets instantly.</div>
+            <a href="https://docs.google.com/spreadsheets/d/1HSokTDqArm4thXJ9AqoMCwx1uC04PcwyxKwytAqFFyw/edit?gid=0#gid=0" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon blue rounded"><i class="fa-solid fa-calendar-plus"></i></div>
+          <div>
+            <div class="app-name">AI Call Scheduler & Summarizer</div>
+            <div class="app-desc">Book calls & receive AI summaries automatically.</div>
+            <a href="https://script.google.com/a/macros/clevertap.com/s/AKfycbw_pCyXj246tbu1Olwiosiyd9JSann0j_5BNUQ0-DmD1bYArv0WFkm2SLunIIed6eL6/exec" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon jira rounded">
+            <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align:middle;">
+              <defs>
+                <linearGradient id="jira-blue" x1="0%" x2="100%" y1="100%" y2="0%">
+                  <stop offset="0%" stop-color="#0052CC"/><stop offset="100%" stop-color="#2684FF"/>
+                </linearGradient>
+              </defs>
+              <path d="M16 5.3l6.9 7.2-6.9 7.2-6.9-7.2z" fill="url(#jira-blue)" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <div class="app-name">NOC Jira Confirmation</div>
+            <div class="app-desc">Validate if escalation to engineering is required.</div>
+            <a href="https://docs.google.com/spreadsheets/d/1aQE1u8JLUZmKqPVeULlgcqpCZ3YraS5nlKDJmbreXIE/edit?gid=388388734#gid=388388734" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon purple rounded"><i class="fa-solid fa-plane-departure"></i></div>
+          <div>
+            <div class="app-name">Leave Tracker</div>
+            <div class="app-desc">Apply/check leave balances for support staff.</div>
+            <a href="https://script.google.com/a/macros/clevertap.com/s/AKfycby7pLp7s16e4SPTBiasWI5Qssw_x3v9hj4PF2kFdQ3C8SAn9ThoNd4r-ni7r2D5ZBw5TA/exec" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon yellow rounded"><i class="fa-brands fa-slack"></i></div>
+          <div>
+            <div class="app-name">Slack Thread Tracker</div>
+            <div class="app-desc">Monitor how long Slack threads wait for a response.</div>
+            <a href="https://script.google.com/macros/s/AKfycbwhC7YSlb-7Y24-nmW-GrZqyylKXp0nBqWIUSYzOhKCXwp3lNIuj1swsuxsF3DfvBPIug/exec" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+        <div class="glass-card app-card fade-in-up">
+          <div class="app-icon red rounded"><i class="fa-solid fa-user-shield"></i></div>
+          <div>
+            <div class="app-name">GST Backup Tool</div>
+            <div class="app-desc">Find backups for ticket assignees if unavailable.</div>
+            <a href="https://wizrocket.atlassian.net/wiki/spaces/CS/pages/5639405569/Backup+POC+via+Slack" class="launch-btn" target="_blank">Launch App</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating help (bottom right) -->
+  <div class="footer-floating-right">
+    <div>Need help?<br>We're here for you 24/7</div>
+    <a href="https://help.clevertap.com/hc/en-us/requests/new" target="_blank" class="footer-web">
+      <i class="fa-solid fa-globe"></i> Ticket Dashboard
+    </a>
   </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left footer-left-gap">
+        <a href="https://clevertap.com/" target="_blank"><img src="clevertap-logo.png" alt="CleverTap Logo" class="logo small"></a>
+        <div>
+          <div class="footer-team-text">Global Support Team</div>
+          <div class="footer-floating-sub">Delivering world-class B2B support excellence.</div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        © 2025 CleverTap. All rights reserved.<br>
+        Built by the CleverTap Global Support Team ⚡️
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
   <script>
-    // Counter animation for KPIs
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach((counter, i) => {
-      const target = +counter.getAttribute('data-target');
-      const isFloat = String(target).includes('.');
-      let count = 0;
-      let step = target / 56;
-      let interval = setInterval(() => {
-        count += step;
-        if (count >= target) {
-          count = target;
-          clearInterval(interval);
-        }
-        if (isFloat) {
-          counter.innerText = count.toFixed(1);
-        } else {
-          counter.innerText = Math.round(count);
-        }
-        // Add % sign for the first two KPIs only
-        if(i < 2 && !counter.innerText.endsWith('%')) {
-          counter.innerText += '%';
-        }
-      }, 19);
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.counter').forEach((counter, i) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0, step = target / 36;
+        let interval = setInterval(() => {
+          count += step;
+          if(count >= target) { count = target; clearInterval(interval);}
+          counter.innerText = i === 2 ? Math.round(count) + " hrs" : Math.round(count) + "%";
+        }, 14);
+      });
+      document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mouseenter', () => card.classList.add('hovered'));
+        card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
+        card.addEventListener('focus', () => card.classList.add('hovered'));
+        card.addEventListener('blur', () => card.classList.remove('hovered'));
+      });
+      document.querySelector('.browse-apps').addEventListener('click', function(e){
+        e.preventDefault();
+        const el = document.getElementById('customer-apps');
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 36, behavior: 'smooth' });
+      });
     });
+    const lenis = new Lenis({ duration: 1.13, easing: t => 1-Math.pow(1-t,4) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf);}
+    requestAnimationFrame(raf);
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(48px)';
+    });
+    const fadeInObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'none';
+          entry.target.style.transition = 'opacity 0.8s cubic-bezier(.47,2.4,.26,1), transform 0.9s cubic-bezier(.44,1.94,.52,.79)';
+          fadeInObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.fade-in-up').forEach(el => fadeInObs.observe(el));
   </script>
 </body>
 </html>
