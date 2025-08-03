@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CleverTap Support Apps Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <img src="clevertap-logo.png" alt="CleverTap Logo" class="logo">
+    <span class="support-team-text">Global Support Team</span>
+  </header>
+  <div class="main-box">
+    <h1>CleverTap Support Apps Hub</h1>
+    <p class="subtitle">
+      AI powered World Class B2B Support Experience through on-point service delivery, backed by customer advocacy.
+    </p>
+
+    <section class="metrics-section">
+      <div class="metric-card">
+        <div class="metric-value counter" data-target="98">0%</div>
+        <div class="metric-name">CSAT Score</div>
+        <div class="metric-description">Customer satisfaction</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value counter" data-target="19">0%</div>
+        <div class="metric-name">Survey Rate</div>
+        <div class="metric-description">Survey participation by customers</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value counter" data-target="5.2">0</div>
+        <div class="metric-name">Requester Wait Time</div>
+        <div class="metric-description">Average Time in biz hrs a query was waiting on CleverTap</div>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "The best experience I've had so far with troubleshooting a ticket. Timely responses, thorough explanation, and true interest in helping out. Anurag even booked a call where he patiently walked me through the logic of how CleverTap system works. Great service!"
+        </div>
+        <div class="testimonial-meta">
+          <span class="testimonial-date">Jun 2025</span>
+          <span class="testimonial-customer">CleverTap Customer</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "Quick understanding and effective solution. My issue was resolved within a day."
+        </div>
+        <div class="testimonial-meta">
+          <span class="testimonial-date">Jun 2025</span>
+          <span class="testimonial-customer">CleverTap Customer</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "Sincere gratitude for the exceptional support. Real people who really care!"
+        </div>
+        <div class="testimonial-meta">
+          <span class="testimonial-date">Jul 2025</span>
+          <span class="testimonial-customer">CleverTap Customer</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="apps-section">
+      <h2>Support Apps</h2>
+      <div class="buttons-list">
+        <a class="btn" href="https://help.clevertap.com/hc/en-us" target="_blank">Get Support</a>
+        <a class="btn" href="https://supportconnect.clevertap.com/" target="_blank">Call Scheduler</a>
+        <span class="btn btn-disabled" tabindex="-1">AI Ticket Summarizer (Coming Soon)</span>
+        <span class="btn btn-disabled" tabindex="-1">AI Notetaker (Coming Soon)</span>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 CleverTap. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    // Counter animation for KPIs
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach((counter, i) => {
+      const target = +counter.getAttribute('data-target');
+      const isFloat = String(target).includes('.');
+      let count = 0;
+      let step = target / 56;
+      let interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        if (isFloat) {
+          counter.innerText = count.toFixed(1);
+        } else {
+          counter.innerText = Math.round(count);
+        }
+        // Add % sign for the first two KPIs only
+        if(i < 2 && !counter.innerText.endsWith('%')) {
+          counter.innerText += '%';
+        }
+      }, 19);
+    });
+  </script>
+</body>
+</html>

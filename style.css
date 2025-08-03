@@ -1,0 +1,189 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #264fff 0%, #e31f71 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: #141c2b;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0 8px 18px;
+}
+.logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.support-team-text {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #23235a;
+  opacity: 0.88;
+  letter-spacing: 0.01em;
+}
+
+/* Main box */
+.main-box {
+  margin: 35px auto 0 auto;
+  max-width: 680px;
+  padding: 2rem 2.5rem;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px 0 rgba(51,60,140,0.16);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 2.4rem;
+  background: linear-gradient(90deg, #264fff 40%, #e31f71 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 1.13rem;
+  color: #4c4c6c;
+  margin-bottom: 2rem;
+}
+
+/* Metrics/KPIs */
+.metrics-section {
+  display: flex;
+  gap: 1.3rem;
+  justify-content: center;
+  margin-bottom: 1.7rem;
+  flex-wrap: wrap;
+}
+.metric-card {
+  background: rgba(255,255,255,0.34);
+  padding: 1.1rem 2.1rem 1.1rem 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 128px;
+  box-shadow: 0 2px 14px 0 rgba(31,38,135,0.08);
+}
+.metric-value {
+  font-size: 1.55rem;
+  font-weight: bold;
+  color: #264fff;
+  min-height: 2em;
+}
+.metric-name {
+  font-size: 1.01rem;
+  color: #101c2b;
+  font-weight: 700;
+  margin: 0.14rem 0;
+}
+.metric-description {
+  font-size: 0.96rem;
+  color: #606088;
+}
+
+/* Testimonials / Reviews */
+.testimonial-card {
+  background: rgba(255,255,255,0.24);
+  border-radius: 13px;
+  box-shadow: 0 2px 13px rgba(38,79,255,0.09);
+  margin-bottom: 1.1em;
+  padding: 1.2em 1.25em 0.95em 1.15em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+}
+.testimonial-quote {
+  font-size: 1.05em;
+  color: #22243f;
+  font-style: italic;
+  line-height: 1.6;
+}
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  font-size: 0.98em;
+  color: #4189e1;
+  font-weight: 600;
+  opacity: 0.85;
+  letter-spacing: 0.01em;
+}
+.testimonial-date {
+  color: #9292b5;
+  font-size: 0.97em;
+  font-weight: 500;
+}
+.testimonial-customer {
+  color: #22243f;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* Apps buttons */
+.apps-section h2 {
+  margin-bottom: 1.1rem;
+  font-size: 1.28rem;
+  text-align: center;
+  color: #23235a;
+}
+.buttons-list {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.btn {
+  display: inline-block;
+  margin: 0.5rem 0.4rem;
+  padding: 0.8rem 2.1rem;
+  color: #fff;
+  background: linear-gradient(90deg, #264fff 0%, #e31f71 100%);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.09rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(76,110,245,0.08);
+  transition: transform 0.12s cubic-bezier(.4,0,.2,1), box-shadow 0.12s;
+  cursor: pointer;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-2px) scale(1.035);
+  box-shadow: 0 6px 28px rgba(227,31,113,0.14);
+  text-decoration: none;
+  color: #fff;
+}
+.btn.btn-disabled, .btn[tabindex="-1"] {
+  background: #b5b5c7 !important;
+  color: #f4f4fd !important;
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .main-header { padding-left: 7px; }
+  .main-box { max-width: 98vw; padding: 1.2rem 0.9rem; }
+}
+@media (max-width: 740px) {
+  .metrics-section { flex-direction: column; gap:0.5rem; align-items: center; }
+  .testimonial-card {padding: 1em 0.6em 0.85em 0.7em;}
+}
+@media (max-width: 520px) {
+  .main-header { padding-left: 2px; }
+  .main-box { padding: 0.35rem 0.12rem; }
+  .metric-card { min-width: unset; padding: 0.9rem 0.8rem;}
+  .btn { padding: 0.7rem 0.6rem; font-size:1em;}
+}
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.97rem;
+  color: #555;
+  text-align: center;
+}
