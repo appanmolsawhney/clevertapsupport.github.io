@@ -193,17 +193,17 @@
         <div class="glass-card app-card fade-in-up">
           <div class="app-icon purple rounded"><i class="fa-solid fa-plane-departure"></i></div>
           <div>
-            <div class="app-name">Leave Tracker</div>
+            <div class="app-name" data-app-id="Leave Tracker">Leave Tracker</div>
             <div class="app-desc">Apply/check leave balances for support staff.</div>
-            <a href="https://script.google.com/a/macros/clevertap.com/s/AKfycby7pLp7s16e4SPTBiasWI5Qssw_x3v9hj4PF2kFdQ3C8SAn9ThoNd4r-ni7r2D5ZBw5TA/exec" class="launch-btn" target="_blank">Launch App</a>
+            <a href="" class="launch-btn" target="_blank">Launch App</a>
           </div>
         </div>
         <div class="glass-card app-card fade-in-up">
           <div class="app-icon yellow rounded"><i class="fa-brands fa-slack"></i></div>
           <div>
-            <div class="app-name">Slack Thread Tracker</div>
+            <div class="app-name" data-app-id="Slack Thread Tracker">Slack Thread Tracker</div>
             <div class="app-desc">Monitor how long Slack threads wait for a response.</div>
-            <a href="https://script.google.com/macros/s/AKfycbwhC7YSlb-7Y24-nmW-GrZqyylKXp0nBqWIUSYzOhKCXwp3lNIuj1swsuxsF3DfvBPIug/exec" class="launch-btn" target="_blank">Launch App</a>
+            <a href="" class="launch-btn" target="_blank">Launch App</a>
           </div>
         </div>
         <div class="glass-card app-card fade-in-up">
@@ -264,6 +264,37 @@
         window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 36, behavior: 'smooth' });
       });
     });
+
+        // Add this inside DOMContentLoaded
+    const configUrl = 'https://script.google.com/macros/s/AKfycbyQlXmuLuYFyayHA-SdN2uU75s4Yxm9xSaSb4Hb8cDNMOBvVgEDKORtSIwxVbbKETjj/exec';
+    const env = 'PROD';
+
+    fetch(configUrl)
+    .then(res => res.json())
+    .then(configData => {
+      console.log("successfully fetched config data: ", configData)
+      document.querySelectorAll('.glass-card').forEach(card => {
+        const appDiv = card.querySelector('.app-name[data-app-id]');
+        const launchBtn = card.querySelector('.launch-btn');
+
+        if (appDiv && launchBtn) {
+          const appId = appDiv.dataset.appId.trim();
+          const match = configData.find(row =>
+            row.app.toLowerCase() === appId.toLowerCase() && row.env === env
+          );
+
+          if (match && match.url) {
+            launchBtn.href = match.url;
+            launchBtn.style.display = 'inline-block';
+          }
+        }
+      });
+    })
+    .catch(err => console.error('Failed to fetch app config:', err));
+
+
+
+
     const lenis = new Lenis({ duration: 1.13, easing: t => 1-Math.pow(1-t,4) });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf);}
     requestAnimationFrame(raf);
