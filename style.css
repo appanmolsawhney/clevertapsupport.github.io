@@ -217,3 +217,8 @@ footer {
   }
   .footer-inner{min-height:0;padding-bottom:2em;}
 }
+<span class="support-team-wrap">
+  <span class="support-team-text blue">Global Support Team
+    <a class="apps-hub-subtext" href="https://globalsupportteam.com/" target="_blank">Apps Hub</a>
+  </span>
+</span>
