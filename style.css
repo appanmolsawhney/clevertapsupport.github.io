@@ -217,8 +217,46 @@ footer {
   }
   .footer-inner{min-height:0;padding-bottom:2em;}
 }
-<span class="support-team-wrap">
-  <span class="support-team-text blue">Global Support Team
-    <a class="apps-hub-subtext" href="https://globalsupportteam.com/" target="_blank">Apps Hub</a>
-  </span>
-</span>
+
+.support-team-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.support-team-text.blue {
+  position: relative;
+  font-size: 0.89rem;
+  font-weight: 700;
+  color: #347afe;
+  letter-spacing: 0.009em;
+  margin-top: 2.0px;
+  text-shadow: 0 1px 2px #7ebaff27;
+  display: inline-block;
+}
+.apps-hub-subtext {
+  position: absolute;
+  right: -46px;
+  bottom: -12px;
+  font-size: 0.67em;
+  color: #906cda;
+  font-weight: 650;
+  text-decoration: none;
+  opacity: 0.84;
+  background: none;
+  letter-spacing: 0.02em;
+  padding-left: 7px;
+  transition: color 0.15s;
+}
+.apps-hub-subtext:hover {
+  color: #2c2cac;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .apps-hub-subtext {
+    right: -26px;
+    bottom: -8px;
+    font-size: 0.52em;
+  }
+}
