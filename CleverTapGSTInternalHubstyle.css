@@ -1,0 +1,898 @@
+body {
+    background: linear-gradient(126deg, #eaf1ff 0%, #dee6fa 15%, #d4e3fd 30%, #f5d7fc 51%, #f6c1ef 77%, #d4e1f9 95%, #e9e2fd 100%);
+    min-height: 100vh;
+    color: #1b2252;
+    font-family: 'Inter', sans-serif;
+    margin: 0; padding: 0;
+  }
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* HEADER */
+  .main-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 0.2rem 2.3rem 0.01rem 2.2rem; margin-bottom: -8px;
+  }
+  .logo-block { display: flex; flex-direction: column; align-items: center; margin-top: 0.1rem;}
+  .logo { height: 54px; margin-bottom: 0.5px;}
+  .logo.small { height: 27px; margin-right:8px;}
+  .support-team-text { font-size: 0.89rem; font-weight: 700; color: #347afe; letter-spacing: 0.009em; margin-top: 2.0px; text-shadow: 0 1px 2px #7ebaff27;}
+  .help-center-btn { background: linear-gradient(90deg, #e31f71 10%, #264fff 89%); color: #fff; font-weight: 700; font-size: 0.99rem; padding: 0.41rem 1.19rem 0.41rem 0.91rem; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 0.36em; box-shadow: 0 2px 11px rgba(227,31,113,0.085); margin-top: 1.5px; border: none;}
+  .help-center-btn:hover { background: linear-gradient(90deg, #264fff 12%, #e31f71 88%); filter:brightness(1.085);}
+  .main-metrics-h2 {
+    text-align: center;
+    font-size: 1.48rem;
+    font-weight: 900;
+    color: #264fff;
+    margin-top: 1.15em;
+    margin-bottom: 0.82em;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Metrics Section, Center CleverTap Support Apps Hub block */
+  .after-metrics, .centered-metrics {
+    margin: 1.2em auto 0.2em auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .apps-hub-title, .apps-hub-title.centered-metrics {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .apps-hub-desc, .apps-hub-desc.centered-metrics {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .apps-hub-title { font-size: 2.44rem; font-weight: 950; color: #143baf; letter-spacing: 0.02em; margin-bottom: 0.11em; text-shadow: 0 2px 20px #b6cbfa;}
+  .apps-hub-desc { font-size: 1.06em; color: #4b5cb7; margin-bottom: 1.42em; }
+  
+  .button-bar, .button-bar.center-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.13rem;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
+  }
+  @media (max-width:700px){
+    .button-bar, .button-bar.center-bar{ flex-direction:column; align-items:center;}
+  }
+  
+  /* Section structure */
+  .section-gap { height: 36px; }
+  .metrics-section { margin-bottom: 2.4em; }
+  .reviews-section { margin: 2.2em auto 0 auto; }
+  .apps-section { margin: 2.8em auto 0 auto; }
+  .internal-apps-section    { margin-top: 2.9em; }
+  
+  /* KPI Cards */
+  .kpi-cards { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap;}
+  .glass-card {
+    background: rgba(255,255,255,0.51);
+    border-radius: 21px;
+    box-shadow: 0 9px 40px 0 rgba(38,79,255,0.09);
+    backdrop-filter: blur(19px) saturate(128%);
+    border: 1.5px solid rgba(227,31,113,0.11);
+    transition: background 0.20s, border 0.18s, box-shadow 0.19s, transform 0.20s;
+    opacity: 0.99; position: relative; cursor:pointer;
+  }
+  .glass-card.hovered, .glass-card:focus-visible, .glass-card:hover {
+    background: rgba(255,255,255,0.74);
+    border: 1.7px solid #e31f71c8;
+    box-shadow: 0 10px 32px 0 rgba(140,130,255,0.13);
+    transform: translateY(-5px) scale(1.03);
+    z-index: 5;
+  }
+  .metric-card {
+    width: 263px; min-width: 263px; max-width: 263px;
+    padding: 1.7rem 1.5rem 1.6rem 1.5rem;
+    align-items: center; flex-direction: column; text-align: center; border-radius: 21px;
+    border-bottom: 2.5px solid #e31f7138;
+  }
+  .metric-icon { font-size: 2.3em; margin-bottom: 0.38em; color: #264fff;}
+  .metric-card:focus-visible .metric-icon, .metric-card.hovered .metric-icon, .metric-card:hover .metric-icon { color: #e31f71; }
+  .metric-value { font-size: 2.01rem; font-weight: 900; color: #264fff; margin-bottom:0.13em;}
+  .metric-card:focus-visible .metric-value, .metric-card.hovered .metric-value, .metric-card:hover .metric-value { color: #e12458; }
+  .metric-name { font-size: 1.07rem; color: #2d389e; font-weight: 850;}
+  .metric-description { font-size: 0.97rem; color: #5066c2; font-weight: 500; margin-bottom:0.08em; margin-top:0.13em;}
+  
+  /* Main buttons */
+  .big-btn { display: flex; align-items: center; background: linear-gradient(90deg, #264fff 9%, #e31f71 92%); color: #fff; font-weight: 700; font-size: 1.08rem; padding: 0.8rem 1.9rem 0.8rem 1.4rem; border-radius: 13px; text-decoration: none; box-shadow: 0 3.6px 17px #4c6ef524; transition:transform 0.14s, box-shadow 0.13s; gap: 0.51rem; border: none; outline: none; cursor: pointer;}
+  .big-btn:hover, .big-btn:focus-visible { transform: translateY(-2px) scale(1.04); box-shadow: 0 6px 16px #e31f7142; filter: brightness(1.06);}
+  .big-btn i { font-size: 1.14em; margin-right: 0.68em; margin-left: -0.17em;}
+  .section-heading.big, .main-title { font-size: 2.09rem; font-weight: 950; letter-spacing:0.01em; color: #1842b2; margin-bottom:0.06em; text-align:center;}
+  .review-subheading.big { text-align: center; color: #5661a3; font-size: 1.05em; margin-bottom:1.35em; font-weight: 500;}
+  .apps-section-header.centered, .app-section-note.centered, .app-section-subtitle.centered { align-items: center; text-align: center; justify-content:center;}
+  .app-section-note {
+    display: flex; align-items: center; font-weight: 650; font-size: 1.06em;
+    border-radius:18px; padding:0.12em 1.18em 0.12em 0.97em;
+    background:rgba(64,221,108,0.09); color:#14b46d; gap: 0.53em; box-shadow:0 1.5px 5px #14b46d19; margin-bottom:0.16em;
+  }
+  .app-section-note.employees-only { background:rgba(150,139,210,0.23); color:#7c2ea9;}
+  .status-dot.green { background:#14b46d; width:0.86em;height:0.86em; border-radius:50%;margin-right:0.51em;}
+  .available-pills-row {
+    width: 100%; display: flex;
+    justify-content: center; align-items: center; margin-bottom: 0.15em;
+  }
+  .apps-section-header .section-heading.main-title { margin-top: 10px; margin-bottom: 0.04em; }
+  
+  .apps-list.two-col { display:grid; grid-template-columns: repeat(auto-fit, minmax(344px, 1fr)); gap: 1.43rem 2.15rem; width:100%; max-width:990px; margin:0 auto; margin-top:0.81em;}
+  .app-card { min-width: 280px; max-width: 510px; min-height:145px; display: flex; align-items: center; gap: 1.15rem; border-radius: 19px; border: none; background: rgba(255,255,255,0.39); padding:2em 1.05em 2em 1.09em;}
+  .app-icon { font-size: 2.25em; min-width: 58px; min-height: 58px; margin-top: 0; align-items: center; justify-content: center; display: flex;}
+  .app-icon.rounded { border-radius: 20px !important; }
+  .app-icon.blue {color: #2664ff; background:rgba(38,100,255,0.09);}
+  .app-icon.green {color: #19b471; background:rgba(64,221,108,0.13);}
+  .app-icon.purple {color: #a059d1; background: #f9ecfd;}
+  .app-icon.orange {color: #ff9900; background: #fff7e5;}
+  .app-icon.yellow {color: #f3b941; background: #fffbea;}
+  .app-icon.red {color: #e12458; background: #fae2ed;}
+  .app-icon.jira { display: flex; align-items: center; justify-content: center; background:rgba(34,69,228,0.07);}
+  .app-name { font-size: 1.09em; font-weight: 700; color: #264fff; margin-bottom: 0.13em;}
+  .app-desc { font-size: 0.98em; color: #8450a5; margin-bottom: 0.16em;}
+  .soon { font-size: 0.95em; color: #e12458; margin-left: 3px;}
+  .app-card .launch-btn { margin-top: 0.7em; display:inline-block; padding:0.39em 1.12em; border-radius:11px; background: linear-gradient(90deg,#264fff 11%, #e31f71 93%); color: #fff; font-weight: 600; font-size: 0.99em; text-decoration: none; box-shadow: 0 2.2px 14px #264fff16; transition: background 0.11s, box-shadow 0.11s, transform 0.13s;}
+  .app-card .launch-btn:hover, .app-card .launch-btn:focus-visible {background:linear-gradient(90deg,#e31f71 6%, #264fff 98%);filter: brightness(1.09);transform: scale(1.045);}
+  .launch-btn.disabled {pointer-events: none;background:#b5b5c7;color:#edeffd;opacity:0.69;filter: grayscale(1) brightness(0.94);font-style: italic;}
+  .app-card:focus-visible, .app-card.hovered, .app-card:hover { background:rgba(227,31,113,0.13); box-shadow:0 7px 18px #264fff2b,0 2.5px 13px #e31f7155; transform:translateY(-2.5px) scale(1.02); border-color:#e31f71c7; z-index:3;}
+  .app-card.disabled {pointer-events:none;opacity:0.58;background:rgba(255,255,255,0.17);border:1.5px solid #e31f7133;color:#a993b7;}
+  
+  .reviews-area { width: 100%; text-align: center; }
+  .reviews-row.center-row {
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .review-blurb { margin-left: auto; margin-right: auto; text-align: center;}
+  @media (max-width: 900px) {
+    .reviews-row.center-row { flex-direction: column; gap: 1.5rem; }
+  }
+  .reviews-row { display: flex; gap: 1.25rem; justify-content: center; width: 100%; max-width:1100px; margin-top:1.6em;}
+  .reviews-large .glass-card { min-width: 230px; max-width: 320px; min-height: 160px;}
+  .review-blurb { font-size: 1.03em; padding: 1.1em 1em 1em 1em; border-radius: 15px; background: rgba(245,223,254,0.22); box-shadow: 0 2px 14px #a9d1ee11, 0 1.5px 7px #e1245832; transition: background 0.13s, box-shadow 0.13s, transform 0.1s;}
+  .review-meta-row { display: flex; align-items: center; gap: 7px; font-size: 0.93em; font-weight: 600; margin-top: 1.1em; color: #264fff; opacity: 0.97; justify-content: center; }
+  .review-meta-row .person-icon {margin-right: 1.5px;}
+  .review-meta-row .review-date { color: #e31f71; margin-left: 5px; margin-right: 2px;}
+  .review-meta-row i.thumbs-up  { color: #19b471; margin-left:2px; }
+  .meta-customer { margin-left: 4px;}
+  .review-text { font-size: 1.04em; color: #213974; font-style: italic; line-height: 1.47; margin-bottom: 0.21em;}
+  .review-blurb:focus-visible, .review-blurb.hovered, .review-blurb:hover { background: rgba(212,208,245,0.24); box-shadow: 0 3px 11px #264fff19; transform: translateY(-1.5px) scale(1.015); z-index: 2;}
+  
+  footer {
+    margin-top: 1.3rem;
+    background: none;
+    position: relative;
+    min-height: 120px;
+  }
+  .footer-inner {
+    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-end;
+    gap: 3px; padding: 0.7em 2em 3.2em 2em;
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+  }
+  .footer-left, .footer-left-gap {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+    position: absolute; left: 0; bottom: 3.2em;
+  }
+  .footer-team-text { font-size: 0.93em; color: #1842b2; font-weight: 700;}
+  .footer-floating-sub { font-size: 0.83rem; color: #5066c2; font-weight:500;}
+  .footer-copyright {
+    font-size: 0.85em;
+    color: #8450a5;
+    text-align: center;
+    margin: 0 auto 0.1em auto;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+    padding-bottom: 0.7em;
+  }
+  
+  /* --- Floating help (footer right) --- */
+  .footer-floating-right {
+    position:fixed; right:0; bottom:25px; z-index:987;
+    background:rgba(255,255,255,0.80); backdrop-filter:blur(12px);
+    border-radius:18px; box-shadow:0 3px 19px #b1caea29;
+    padding: 13px 19px 8px 12px;
+    display:flex; flex-direction:column; align-items:flex-end;
+    min-width:175px; font-weight:700; font-size:1.03rem; color:#1240b4;
+  }
+  .footer-web { color:#3673c6; font-size:.98rem; margin-top:5px; text-decoration:none; font-weight:600;}
+  .footer-web i { margin-right:5px; color:#2bb0f6; }
+  
+  @media (max-width: 1080px) {
+    .footer-inner{padding:0.7em 0.8em 4.2em 0.8em;}
+    .footer-left, .footer-left-gap {left:0; bottom:4.2em;}
+  }
+  @media (max-width: 700px) {
+    .footer-left, .footer-left-gap {
+      position: static;
+      margin-bottom: 2em;
+    }
+    .footer-inner{min-height:0;padding-bottom:2em;}
+  }
+  
+  .support-team-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .support-team-text.blue {
+    position: relative;
+    font-size: 0.89rem;
+    font-weight: 700;
+    color: #347afe;
+    letter-spacing: 0.009em;
+    margin-top: 2.0px;
+    text-shadow: 0 1px 2px #7ebaff27;
+    display: inline-block;
+  }
+  .apps-hub-subtext {
+    position: absolute;
+    right: -46px;
+    bottom: -12px;
+    font-size: 0.67em;
+    color: #906cda;
+    font-weight: 650;
+    text-decoration: none;
+    opacity: 0.84;
+    background: none;
+    letter-spacing: 0.02em;
+    padding-left: 7px;
+    transition: color 0.15s;
+  }
+  .apps-hub-subtext:hover {
+    color: #2c2cac;
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .apps-hub-subtext {
+      right: -26px;
+      bottom: -8px;
+      font-size: 0.52em;
+    }
+  }
+body{
+    background:linear-gradient(126deg,#eaf1ff 0%,#dee6fa 15%,#d4e3fd 30%,#f5d7fc 51%,#f6c1ef 77%,#d4e1f9 95%,#e9e2fd 100%);
+    min-height:100vh;color:#1b2252;font-family:'Inter',sans-serif;margin:0;padding:0}
+  html,body{max-width:100vw;overflow-x:hidden}
+  
+  /* …—— all your original rules exactly as supplied, up to .apps-card.disabled —*/
+  
+  .app-card.disabled{pointer-events:none;opacity:.58;background:rgba(255,255,255,.17);border:1.5px solid #e31f7133;color:#a993b7}
+  
+  /* ———————————  NEW  (adds only what’s needed) ——————————— */
+  
+  /* fade-ins already set in original JS; ensure invisible init */
+  .fade-in-up{opacity:0;transform:translateY(48px)}
+  
+  /* REGION CARDS */
+  .region-stats-section{margin:2.4em auto 0;text-align:center}
+  .region-cards-wrap{display:flex;flex-direction:column;gap:1.25rem;max-width:1000px;margin:0 auto}
+  .region-card{padding:0;transition:background .2s}
+  .region-header{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;font-weight:700;font-size:1.1rem;color:#264fff;cursor:pointer}
+  .region-body{padding:0 1.2rem 1.3rem 1.2rem;max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .region-body.open{max-height:1200px}
+  .region-card .toggle-icon{transition:transform .35s ease}
+  
+  /* metrics inside region */
+  .kpi-cards.regional{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.1rem}
+  .metric-card.small{width:200px;min-width:200px;padding:1.1rem 1rem 1rem;border-bottom:2px solid #e31f7138}
+  .metric-card.small .metric-icon{font-size:1.8em;margin-bottom:.3em}
+  .metric-card.small .metric-value{font-size:1.7rem;color:#264fff}
+  .metric-card.small .metric-name{font-size:1rem}
+  .metric-card.small .metric-description{font-size:.9rem;color:#5066c2}
+  
+  /* UPCOMING section re-uses existing .apps-section styles – no extra CSS */
+  
+  /* WALL OF FAME */
+  .wall-of-fame-section{text-align:center;margin:2.7em auto 0}
+  .wall-icon{color:#ffd700;margin-right:.35rem}
+  .wall-sub{font-size:1.05rem;color:#5661a3;margin-bottom:1.6em}
+  .month-heading{font-size:1.35rem;color:#1842b2;margin-bottom:1.3em;font-weight:800}
+  .wall-cards{display:flex;flex-direction:column;gap:1.4rem;max-width:380px;margin:0 auto}
+  .star-card{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:1.7rem 1.2rem}
+  .star-card img{width:150px;height:150px;border-radius:50%;border:4px solid #fff;object-fit:cover}
+  .star-card p{font-size:.98rem;color:#213974;font-weight:600;text-align:center;line-height:1.45}
+  .star-card i{color:#e31f71;margin-right:.4rem}
+  
+  /* REGION arrow */
+  .region-card .toggle-icon{color:#e31f71;font-size:1rem}
+  
+  /* FIX 1: Region collapsible spacing and card visibility */
+.region-stats-section {
+    margin: 2.4em auto 0;
+    text-align: center;
+    padding-bottom: 2rem; /* Add space to prevent collision */
+  }
+  
+  .region-body {
+    padding: 0 1.2rem 1.3rem 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+    margin-top: 1rem; /* Add spacing from header */
+  }
+  
+  .region-body.open {
+    max-height: 1200px;
+    padding-top: 1rem; /* Add top padding when open */
+  }
+  
+  /* Make regional KPI cards more visible */
+  .kpi-cards.regional {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.1rem;
+  }
+  
+  .metric-card.small {
+    width: 200px;
+    min-width: 200px;
+    padding: 1.1rem 1rem 1rem;
+    border-bottom: 2px solid #e31f7138;
+    /* Make cards stand out more */
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(38, 79, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1.2px solid rgba(227, 31, 113, 0.15);
+  }
+  
+  .metric-card.small:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(38, 79, 255, 0.12);
+  }
+  
+  /* FIX 2: Wall of Fame icon visibility */
+  .wall-icon {
+    color: #ffd700;
+    margin-right: .35rem;
+    font-size: 1.2em; /* Make it slightly larger */
+    text-shadow: 0 2px 8px rgba(255, 215, 0, 0.4); /* Add golden glow */
+    filter: drop-shadow(0 1px 3px rgba(255, 165, 0, 0.6));
+  }
+  
+  .star-medal {
+    color: #ffd700 !important;
+    margin-right: .4rem;
+    font-size: 1.1em;
+    text-shadow: 0 1px 4px rgba(255, 215, 0, 0.5);
+    filter: drop-shadow(0 1px 2px rgba(255, 140, 0, 0.7));
+  }
+  
+  /* FIX 3: Footer alignment */
+
+ /* Footer - position at bottom left corner of viewport */
+footer {
+    margin-top: 1.3rem;
+    background: none;
+    position: relative;
+    min-height: 120px;
+  }
+  
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.7em 2em 3.2em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items to bottom */
+    width: 100%;
+    min-height: 120px;
+    position: relative;
+  }
+  
+  .footer-left, .footer-left-gap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    /* Remove absolute positioning - use normal flow */
+  }
+  
+  .footer-left img.logo.small {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  
+  .footer-team-text {
+    font-size: 0.93em;
+    color: #1842b2;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .footer-floating-sub {
+    font-size: 0.83rem;
+    color: #5066c2;
+    font-weight: 500;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .footer-copyright {
+    font-size: 0.85em;
+    color: #8450a5;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4;
+    /* Center this in the remaining space */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1080px) {
+    .footer-inner {
+      padding: 0.7em 0.8em 4.2em 0.8em;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .footer-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      min-height: 0;
+      padding-bottom: 2em;
+    }
+    
+    .footer-left, .footer-left-gap {
+      align-items: center;
+    }
+    
+    .footer-copyright {
+      flex: none;
+      justify-content: center;
+    }
+  }
+  
+/* ─── FINAL footer tweak ───────────────────────────── */
+
+/* 1  make footer-inner a positioning context with *no* left padding */
+.footer-inner{
+    position:relative !important;
+    padding:0 2em 3.2em 0 !important;   /* 0 left  |  2em right  | 3.2em bottom */
+  }
+  
+  /* 2  pin the logo + text block hard-left */
+  .footer-left,
+  .footer-left-gap{
+    position:absolute !important;
+    left:-8% !important;         /* flush to viewport’s left edge */
+    bottom:3.2em !important;   /* keep original vertical baseline */
+  }
+  
+  /* 3  keep the copyright perfectly centred */
+  .footer-copyright{
+    position:absolute !important;
+    left:50% !important;
+    bottom:3.2em !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    width:auto !important;
+  }
+  
+  /* New styles for clickable elements and data notes */
+.clickable-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .clickable-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 79, 255, 0.15);
+  }
+  
+  .clickable-heading {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .clickable-heading:hover {
+    color: #e31f71;
+  }
+  
+  .clickable-metric {
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  .clickable-metric:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+  }
+  
+  .data-update-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #5066c2;
+    margin-bottom: 1.5rem;
+    margin-top: -0.5rem;
+  }
+  
+  .historical-data-link {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .historical-data-link a {
+    color: #5066c2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .historical-data-link a:hover {
+    color: #e31f71;
+    text-decoration: underline;
+  }
+  
+  .engineer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #264fff;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+  
+  /* Engineers grid now shows 4 cards in 2x2 layout */
+  .engineers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .engineers-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }  
+  /* Emergency fix for hidden content */
+.main-content {
+    position: relative !important;
+    z-index: 1 !important;
+    background: transparent !important;
+    margin-top: 0 !important;
+    padding-top: 40px !important;
+  }
+  
+  /* Ensure all sections are visible */
+  .metrics-section,
+  .reviews-section,
+  .region-stats-section,
+  .apps-section,
+  .wall-of-fame-section {
+    position: relative !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Fix fade-in elements */
+  .fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+  }
+  
+  /* Ensure KPI cards are visible */
+  .kpi-cards {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .glass-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* ========== FIXES FOR ISSUES ========== */
+
+/* 1. Fix region subheading spacing */
+.region-note {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+  
+  /* 2. Fix region collapsible functionality */
+  .region-content {
+    padding: 0 1.2rem 1.3rem 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  
+  .region-content.expanded {
+    max-height: 600px;
+    padding: 1rem 1.2rem 1.3rem 1.2rem;
+  }
+  
+  .region-content.collapsed {
+    max-height: 0;
+    padding: 0 1.2rem 0 1.2rem;
+  }
+  
+  /* 3. Fix Wall of Fame spacing */
+  .historical-data-link {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem !important; /* Reduced spacing */
+    margin-top: -0.3rem !important;   /* Bring closer to subheading */
+  }
+  
+  /* 4. Remove black stars from engineer captions */
+  .engineer-caption {
+    font-size: 0.98rem;
+    color: #213974;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.45;
+    /* Remove star styling */
+  }
+  
+  /* Remove the star icon from engineer captions */
+  .engineer-caption i {
+    display: none;
+  }
+  
+  /* Emergency fix for hidden content */
+  .main-content {
+    position: relative !important;
+    z-index: 1 !important;
+    background: transparent !important;
+    margin-top: 0 !important;
+    padding-top: 40px !important;
+  }
+  
+  /* Ensure all sections are visible */
+  .metrics-section,
+  .reviews-section,
+  .region-stats-section,
+  .apps-section,
+  .wall-of-fame-section {
+    position: relative !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Fix fade-in elements */
+  .fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+  }
+  
+  /* Ensure KPI cards are visible */
+  .kpi-cards {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .glass-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* New styles for clickable elements and data notes */
+  .clickable-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .clickable-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 79, 255, 0.15);
+  }
+  
+  .clickable-heading {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .clickable-heading:hover {
+    color: #e31f71;
+  }
+  
+  .clickable-metric {
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  .clickable-metric:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+  }
+  
+  .data-update-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #5066c2;
+    margin-bottom: 1.5rem;
+    margin-top: -0.5rem;
+  }
+  
+  .historical-data-link a {
+    color: #5066c2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .historical-data-link a:hover {
+    color: #e31f71;
+    text-decoration: underline;
+  }
+  
+  .engineer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #264fff;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+  
+  /* Engineers grid now shows 4 cards in 2x2 layout */
+  .engineers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .engineers-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+  
+  /* ─── FINAL footer tweak ───────────────────────────── */
+  
+  /* 1  make footer-inner a positioning context with *no* left padding */
+  .footer-inner{
+    position:relative !important;
+    padding:0 2em 3.2em 0 !important;   /* 0 left  |  2em right  | 3.2em bottom */
+  }
+  
+  /* 2  pin the logo + text block hard-left */
+  .footer-left,
+  .footer-left-gap{
+    position:absolute !important;
+    left:-8% !important;         /* flush to viewport's left edge */
+    bottom:3.2em !important;   /* keep original vertical baseline */
+  }
+  
+  /* 3  keep the copyright perfectly centred */
+  .footer-copyright{
+    position:absolute !important;
+    left:50% !important;
+    bottom:3.2em !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    width:auto !important;
+  }
+  /* Fix 1: Larger main heading */
+.main-metrics-h1 {
+    text-align: center;
+    font-size: 2.2rem !important; /* Increased from 1.48rem */
+    font-weight: 900;
+    color: #264fff;
+    margin-top: 1.15em;
+    margin-bottom: 0.82em;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Fix 2: Perfect circular frames for Wall of Fame images */
+  .engineer-image {
+    position: relative !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: 4px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(38, 79, 255, 0.1) !important;
+    margin: 0 auto 1rem auto !important;
+  }
+  
+  .engineer-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    border-radius: 50% !important;
+  }
+  
+  /* Keep excellence badge positioned correctly */
+  .excellence-badge {
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 35px !important;
+    height: 35px !important;
+    background: #ffd700 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    color: #333 !important;
+    border: 3px solid white !important;
+    z-index: 10 !important;
+  }
+  
+  /* Fix engineer card layout */
+  .engineer-card {
+    text-align: center !important;
+    padding: 2rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .engineer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #264fff;
+    margin-bottom: 1rem !important;
+    text-align: center;
+  }
+  
+  .engineer-caption {
+    font-size: 0.95rem;
+    color: #213974;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    margin-top: 1rem;
+    max-width: 250px;
+  }
+  
+  /* Golden icons in Wall of Fame titles */
+.engineer-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  font-weight: 700;
+  color: #264fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.golden-icon {
+  font-size: 1.3rem !important;
+  color: #ffd700 !important;
+  text-shadow: 0 1px 4px rgba(255, 215, 0, 0.5) !important;
+}
