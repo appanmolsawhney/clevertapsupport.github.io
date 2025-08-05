@@ -906,7 +906,7 @@ footer {
     opacity: 0.84;
     letter-spacing: 0.02em;
     margin-top: 4px;
-    margin-right: 5px; /* Add this line to shift left */
+    margin-right: 0px; /* Add this line to shift left */
     transition: color 0.15s;
   }
   
