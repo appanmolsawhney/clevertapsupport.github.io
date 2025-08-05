@@ -898,6 +898,12 @@ footer {
 }
 
 /* 24/7 Support text below Help Center button */
+.help-center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* ensures right alignment */
+  }
+  
   .support-24-7-subtext {
     font-size: 0.85em;
     color: #906cda;
@@ -906,10 +912,9 @@ footer {
     opacity: 0.84;
     letter-spacing: 0.02em;
     margin-top: 4px;
-    margin-right: 0px; /* Add this line to shift left */
+    /* remove margin-right */
     transition: color 0.15s;
   }
-  
   
   .support-24-7-subtext:hover {
     color: #2c2cac;
@@ -922,4 +927,3 @@ footer {
       margin-top: 2px;
     }
   }
-  
