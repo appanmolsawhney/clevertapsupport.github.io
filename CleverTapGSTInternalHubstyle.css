@@ -170,17 +170,6 @@ body {
     position: relative;
     min-height: 120px;
   }
-  .footer-inner {
-    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-end;
-    gap: 3px; padding: 0.7em 2em 3.2em 2em;
-    position: relative;
-    width: 100%;
-    min-height: 120px;
-  }
-  .footer-left, .footer-left-gap {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-    position: absolute; left: 0; bottom: 3.2em;
-  }
   .footer-team-text { font-size: 0.93em; color: #1842b2; font-weight: 700;}
   .footer-floating-sub { font-size: 0.83rem; color: #5066c2; font-weight:500;}
   .footer-copyright {
@@ -206,17 +195,6 @@ body {
   .footer-web { color:#3673c6; font-size:.98rem; margin-top:5px; text-decoration:none; font-weight:600;}
   .footer-web i { margin-right:5px; color:#2bb0f6; }
   
-  @media (max-width: 1080px) {
-    .footer-inner{padding:0.7em 0.8em 4.2em 0.8em;}
-    .footer-left, .footer-left-gap {left:0; bottom:4.2em;}
-  }
-  @media (max-width: 700px) {
-    .footer-left, .footer-left-gap {
-      position: static;
-      margin-bottom: 2em;
-    }
-    .footer-inner{min-height:0;padding-bottom:2em;}
-  }
   
   .support-team-wrap {
     position: relative;
@@ -381,31 +359,7 @@ footer {
     position: relative;
     min-height: 120px;
   }
-  
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.7em 2em 3.2em 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Align items to bottom */
-    width: 100%;
-    min-height: 120px;
-    position: relative;
-  }
-  
-  .footer-left, .footer-left-gap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    /* Remove absolute positioning - use normal flow */
-  }
-  
-  .footer-left img.logo.small {
-    margin-bottom: 0;
-    margin-right: 0;
-  }
+
   
   .footer-team-text {
     font-size: 0.93em;
@@ -452,9 +406,6 @@ footer {
       padding-bottom: 2em;
     }
     
-    .footer-left, .footer-left-gap {
-      align-items: center;
-    }
     
     .footer-copyright {
       flex: none;
@@ -463,20 +414,6 @@ footer {
   }
   
 /* ─── FINAL footer tweak ───────────────────────────── */
-
-/* 1  make footer-inner a positioning context with *no* left padding */
-.footer-inner{
-    position:relative !important;
-    padding:0 2em 3.2em 0 !important;   /* 0 left  |  2em right  | 3.2em bottom */
-  }
-  
-  /* 2  pin the logo + text block hard-left */
-  .footer-left,
-  .footer-left-gap{
-    position:absolute !important;
-    left:-8% !important;         /* flush to viewport’s left edge */
-    bottom:3.2em !important;   /* keep original vertical baseline */
-  }
   
   /* 3  keep the copyright perfectly centred */
   .footer-copyright{
@@ -776,20 +713,6 @@ footer {
   
   /* ─── FINAL footer tweak ───────────────────────────── */
   
-  /* 1  make footer-inner a positioning context with *no* left padding */
-  .footer-inner{
-    position:relative !important;
-    padding:0 2em 3.2em 0 !important;   /* 0 left  |  2em right  | 3.2em bottom */
-  }
-  
-  /* 2  pin the logo + text block hard-left */
-  .footer-left,
-  .footer-left-gap{
-    position:absolute !important;
-    left:-8% !important;         /* flush to viewport's left edge */
-    bottom:3.2em !important;   /* keep original vertical baseline */
-  }
-  
   /* 3  keep the copyright perfectly centred */
   .footer-copyright{
     position:absolute !important;
@@ -896,34 +819,3 @@ footer {
   color: #ffd700 !important;
   text-shadow: 0 1px 4px rgba(255, 215, 0, 0.5) !important;
 }
-
-/* 24/7 Support text below Help Center button */
-.help-center-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* ensures right alignment */
-  }
-  
-  .support-24-7-subtext {
-    font-size: 0.85em;
-    color: #906cda;
-    font-weight: 850;
-    text-decoration: none;
-    opacity: 0.84;
-    letter-spacing: 0.02em;
-    margin-top: 4px;
-    /* remove margin-right */
-    transition: color 0.15s;
-  }
-  
-  .support-24-7-subtext:hover {
-    color: #2c2cac;
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 600px) {
-    .support-24-7-subtext {
-      font-size: 0.52em;
-      margin-top: 2px;
-    }
-  }
