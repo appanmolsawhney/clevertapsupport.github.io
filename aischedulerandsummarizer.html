@@ -17,6 +17,48 @@
       height: 100vh;
       min-height: 100%;
     }
+    footer {
+    margin-top: 1.3rem;
+    background: none;
+    position: relative;
+    min-height: 120px;
+  }
+  .footer-inner {
+    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-end;
+    gap: 3px; padding: 0.7em 2em 3.2em 2em;
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+  }
+  .footer-left, .footer-left-gap {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+    position: absolute; left: 0; bottom: 3.2em;
+  }
+  .footer-team-text { font-size: 0.93em; color: #1842b2; font-weight: 700;}
+  .footer-floating-sub { font-size: 0.83rem; color: #5066c2; font-weight:500;}
+  .footer-copyright {
+    font-size: 0.85em;
+    color: #8450a5;
+    text-align: center;
+    margin: 0 auto 0.1em auto;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+    padding-bottom: 0.7em;
+  }
+    @media (max-width: 1080px) {
+    .footer-inner{padding:0.7em 0.8em 4.2em 0.8em;}
+    .footer-left, .footer-left-gap {left:0; bottom:4.2em;}
+  }
+  @media (max-width: 700px) {
+    .footer-left, .footer-left-gap {
+      position: static;
+      margin-bottom: 2em;
+    }
+    .footer-inner{min-height:0;padding-bottom:2em;}
+  }
+  
+    
   </style>
 </head>
 <body>
