@@ -845,3 +845,9 @@ footer {
       margin-top: 2px;
     }
   }
+.help-center-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
