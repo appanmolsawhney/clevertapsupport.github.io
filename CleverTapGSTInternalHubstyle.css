@@ -851,3 +851,67 @@ footer {
     flex-direction: column;
     align-items: flex-end;
   }
+
+/* Training Schedule section — uses existing styles, only light refinements */
+.training-section .training-title-link,
+.training-section .training-sub-link {
+  color: #1842b2;
+  text-decoration: none;
+}
+
+.training-section .training-title-link:hover,
+.training-section .training-sub-link:hover {
+  color: #e31f71;
+  text-decoration: underline;
+}
+
+.training-grid {
+  /* Reuse .apps-list.two-col but ensure a tidy 2x2 grid */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 1.43rem 2.15rem;
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  margin-top: 0.81em;
+}
+
+@media (max-width: 768px) {
+  .training-grid {
+    grid-template-columns: 1fr; /* stack on small screens */
+  }
+}
+
+.training-card {
+  background: rgba(255,255,255,0.39);
+  border-radius: 19px;
+  border: 1.2px solid rgba(227,31,113,0.15);
+  box-shadow: 0 7px 18px #264fff2b, 0 2.5px 13px #e31f7155;
+  text-decoration: none;
+  color: inherit;
+}
+
+.training-card:hover,
+.training-card:focus-visible {
+  background: rgba(227,31,113,0.13);
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(38,79,255,0.16), 0 3px 14px rgba(227,31,113,0.42);
+  outline: none;
+}
+
+.training-card .app-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.training-details,
+.training-prereq {
+  font-size: 0.95em;
+  color: #5066c2;
+  margin-top: 0.28rem;
+  line-height: 1.45;
+}
+
+.training-prereq {
+  color: #8450a5;
+}
