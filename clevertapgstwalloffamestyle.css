@@ -375,7 +375,17 @@ footer {
   .footer-inner{min-height:0;padding-bottom:2em;}
 }
 
-/* 24/7 Support text below Help Center button */
+
+
+/* Wrapper to position the 24/7 text below Help Center button */
+.help-center-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  /* 24/7 Support text below Help Center button */
   .support-24-7-subtext {
     font-size: 0.85em;
     color: #906cda;
@@ -400,3 +410,4 @@ footer {
       margin-top: 2px;
     }
   }
+  
