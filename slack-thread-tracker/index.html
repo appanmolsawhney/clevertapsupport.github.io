@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leave Tracker</title>
+  <title>Slack Thread Tracker</title>
 </head>
 <body>
   <h2 id="loading">Logging in...</h2>
@@ -9,7 +9,7 @@
     <iframe 
       src="" 
       allowfullscreen
-      title="GST Leave Tracker">
+      title="Slack thread Tracker">
     </iframe>
   </div>
 
@@ -26,19 +26,20 @@
   }).then(authenticated => {
     if (!authenticated) {
       keycloak.login({
-        redirectUri: `https://globalsupportteam.com/callback.html?target=/leave-tracker/`
+        redirectUri: `https://globalsupportteam.com/callback.html?target=/slack-thread-tracker/`
       });
     } else {
       console.log("User authenticated:", keycloak.tokenParsed.preferred_username);
+      const appName = "slack-thread-tracker"
 
-      ConfigService.getAppUrl("leave-tracker")
+      ConfigService.getAppUrl(appName)
         .then(url => {
           if (url) {
             document.querySelector('#loading').style.display = 'none';
             document.querySelector('#content').style.display = 'block';
             document.querySelector('#content iframe').src = url;
           } else {
-            console.error("No matching URL found for LeaveTracker");
+            console.error("No matching URL found for :", appName);
           }
         })
         .catch(err => console.error("Error fetching app URL:", err));
