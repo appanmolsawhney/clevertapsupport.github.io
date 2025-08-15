@@ -281,35 +281,6 @@
       });
     });
 
-        // Add this inside DOMContentLoaded
-    const configUrl = 'https://script.google.com/macros/s/AKfycbyQlXmuLuYFyayHA-SdN2uU75s4Yxm9xSaSb4Hb8cDNMOBvVgEDKORtSIwxVbbKETjj/exec';
-    const env = 'PROD';
-
-    fetch(configUrl)
-    .then(res => res.json())
-    .then(configData => {
-      console.log("successfully fetched config data: ", configData)
-      document.querySelectorAll('.glass-card').forEach(card => {
-        const appDiv = card.querySelector('.app-name[data-app-id]');
-        const launchBtn = card.querySelector('.launch-btn');
-
-        if (appDiv && launchBtn) {
-          const appId = appDiv.dataset.appId.trim();
-          const match = configData.find(row =>
-            row.app.toLowerCase() === appId.toLowerCase() && row.env === env
-          );
-
-          if (match && match.url) {
-            launchBtn.href = match.url;
-            launchBtn.style.display = 'inline-block';
-          }
-        }
-      });
-    })
-    .catch(err => console.error('Failed to fetch app config:', err));
-
-
-
 
     const lenis = new Lenis({ duration: 1.13, easing: t => 1-Math.pow(1-t,4) });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf);}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leave Tracker</title>
+</head>
+<body>
+  <h2 id="loading">Checking login...</h2>
+  <div id="content" style="display:none;">
+    <iframe 
+      src="" 
+      allowfullscreen
+      title="GST Leave Tracker">
+    </iframe>
+  </div>
+
+<script src="/keycloak-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
+<script src="/assets/js/config-service.js"></script>
+<script>
+  const keycloak = new Keycloak(window.KeycloakConfig);
+
+  keycloak.init({
+    onLoad: 'check-sso',
+    pkceMethod: 'S256',
+    flow: 'standard'
+  }).then(authenticated => {
+    if (!authenticated) {
+      keycloak.login({
+        redirectUri: `https://globalsupportteam.com/callback.html?target=/leave-tracker/`
+      });
+    } else {
+      console.log("User authenticated:", keycloak.tokenParsed.preferred_username);
+
+      ConfigService.getAppUrl("LeaveTracker")
+        .then(url => {
+          if (url) {
+            document.querySelector('#loading').style.display = 'none';
+            document.querySelector('#content').style.display = 'block';
+            document.querySelector('#content iframe').src = url;
+          } else {
+            console.error("No matching URL found for LeaveTracker");
+          }
+        })
+        .catch(err => console.error("Error fetching app URL:", err));
+    }
+  });
+
+  function logout() {
+    keycloak.logout({
+      redirectUri: 'https://globalsupportteam.com/'
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Processing Login...</title>
+  <script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const target = params.get('target') || '/';
+
+   const keycloak = new Keycloak(window.KeycloakConfig);
+
+  keycloak.init({
+    onLoad: 'check-sso',
+    pkceMethod: 'S256',
+    flow: 'standard'
+  }).then(authenticated => {
+    if (authenticated) {
+      window.location.href = target;
+    } else {
+      console.error("Authentication failed");
+    }
+  }).catch(console.error);
+</script>
+</body>
+</html>
