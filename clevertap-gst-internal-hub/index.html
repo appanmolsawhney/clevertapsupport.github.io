@@ -13,7 +13,7 @@
   <!-- Inter Font & FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="CleverTapGSTInternalHubstyle.css">
+  <link rel="stylesheet" href="clevertap-gst-internal-hubstyle.css">
 </head>
 <body>
   <h2 id="loading">Logging in...</h2>
@@ -882,7 +882,7 @@ document.querySelectorAll('.counter').forEach((counter, i) => {
     }).then(authenticated => {
       if (!authenticated) {
         keycloak.login({
-          redirectUri: `https://globalsupportteam.com/callback.html?target=/CleverTapGSTInternalHub/`
+          redirectUri: `https://globalsupportteam.com/callback.html?target=/clevertap-gst-internal-hub/`
         });
       } else {
         console.log("User authenticated:", keycloak.tokenParsed.preferred_username);
