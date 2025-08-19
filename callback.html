@@ -4,26 +4,107 @@
   <meta charset="UTF-8">
   <title>Processing Login...</title>
   <script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .spinner {
+      border: 6px solid #eee;
+      border-top: 6px solid #0078d7;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #444;
+      text-align: center;
+    }
+    .error-icon {
+      font-size: 60px;
+      color: red;
+      display: none;
+    }
+    .retry-btn {
+      margin-top: 12px;
+      padding: 8px 16px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+    .retry-btn:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const target = params.get('target') || '/';
-  console.log(`target is ${target}`)
+  <div class="container">
+    <div class="spinner"></div>
+    <div class="error-icon">❌</div>
+    <div class="loading-text">Processing login...</div>
+    <button class="retry-btn" onclick="retryLogin()">Retry</button>
+  </div>
 
-  const keycloak = new Keycloak(window.KeycloakConfig);
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get('target') || '/';
+    console.log(`target is ${target}`);
 
-  keycloak.init({
-    onLoad: 'check-sso',
-    pkceMethod: 'S256',
-    flow: 'standard'
-  }).then(authenticated => {
-    if (authenticated) {
-      window.location.href = "https://globalsupportteam.com"+target;
-    } else {
-      console.error("Authentication failed");
+    const keycloak = new Keycloak(window.KeycloakConfig);
+
+    function showError(message) {
+      document.querySelector('.spinner').style.display = 'none';
+      document.querySelector('.error-icon').style.display = 'block';
+      document.querySelector('.loading-text').textContent = message;
+      document.querySelector('.retry-btn').style.display = 'block';
     }
-  }).catch(console.error);
-</script>
+
+    function retryLogin() {
+      document.querySelector('.spinner').style.display = 'block';
+      document.querySelector('.error-icon').style.display = 'none';
+      document.querySelector('.loading-text').textContent = "Retrying login...";
+      document.querySelector('.retry-btn').style.display = 'none';
+
+      keycloak.login({
+        redirectUri: "https://globalsupportteam.com/callback.html?target=" + target
+      });
+    }
+
+    keycloak.init({
+      onLoad: 'check-sso',
+      pkceMethod: 'S256',
+      flow: 'standard'
+    }).then(authenticated => {
+      if (authenticated) {
+        window.location.href = "https://globalsupportteam.com" + target;
+      } else {
+        console.error("Authentication failed");
+        showError("Authentication failed. Please login again.");
+      }
+    }).catch(err => {
+      console.error(err);
+      showError("Error occurred during login.");
+    });
+  </script>
 </body>
 </html>
