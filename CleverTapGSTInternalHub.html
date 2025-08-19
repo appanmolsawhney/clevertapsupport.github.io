@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="CleverTapGSTInternalHubstyle.css">
 </head>
 <body>
+  <h2 id="loading">Logging in...</h2>
+  <div id="content" style="display:none;">
   <!-- HEADER -->
   <header class="main-header">
     <div class="logo-block">
@@ -29,7 +31,6 @@
       </span>
     </div>
        <!-- in your header, in the top-right slot -->
-</div>
     <div class="help-center-wrapper">
         <a href="https://help.clevertap.com/hc/en-us" target="_blank" class="help-center-btn">
           <i class="fa-solid fa-circle-question"></i> Help Center
@@ -746,7 +747,7 @@
           <div>
             <div class="app-name" data-app-id="Leave Tracker">Leave Tracker</div>
             <div class="app-desc">Apply/check leave balances for support staff.</div>
-            <a href="" class="launch-btn" target="_blank">Launch App</a>
+            <a href="https://globalsupportteam.com/leave-tracker" class="launch-btn" target="_blank">Launch App</a>
           </div>
         </div>
         <div class="glass-card app-card fade-in-up">
@@ -754,7 +755,7 @@
           <div>
             <div class="app-name" data-app-id="Slack Thread Tracker">Slack Thread Tracker</div>
             <div class="app-desc">Monitor how long Slack threads wait for a response.</div>
-            <a href="" class="launch-btn" target="_blank">Launch App</a>
+            <a href="https://globalsupportteam.com/slack-thread-tracker" class="launch-btn" target="_blank">Launch App</a>
           </div>
         </div>
         <div class="glass-card app-card fade-in-up">
@@ -784,6 +785,7 @@
       </div>
     </div>
   </footer>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
   <script>
@@ -828,33 +830,6 @@ document.querySelectorAll('.counter').forEach((counter, i) => {
       });
     });
 
-    // Config URL logic (unchanged)
-    const configUrl = 'https://script.google.com/macros/s/AKfycbyQlXmuLuYFyayHA-SdN2uU75s4Yxm9xSaSb4Hb8cDNMOBvVgEDKORtSIwxVbbKETjj/exec';
-    const env = 'PROD';
-
-    fetch(configUrl)
-    .then(res => res.json())
-    .then(configData => {
-      console.log("successfully fetched config data: ", configData)
-      document.querySelectorAll('.glass-card').forEach(card => {
-        const appDiv = card.querySelector('.app-name[data-app-id]');
-        const launchBtn = card.querySelector('.launch-btn');
-
-        if (appDiv && launchBtn) {
-          const appId = appDiv.dataset.appId.trim();
-          const match = configData.find(row =>
-            row.app.toLowerCase() === appId.toLowerCase() && row.env === env
-          );
-
-          if (match && match.url) {
-            launchBtn.href = match.url;
-            launchBtn.style.display = 'inline-block';
-          }
-        }
-      });
-    })
-    .catch(err => console.error('Failed to fetch app config:', err));
-
     // Region toggle function - FIXED
     function toggleRegion(regionId) {
       const content = document.getElementById(regionId + '-content');
@@ -893,5 +868,35 @@ document.querySelectorAll('.counter').forEach((counter, i) => {
     }, { threshold: 0.18 });
     document.querySelectorAll('.fade-in-up').forEach(el => fadeInObs.observe(el));
   </script>
+
+  <script src="/keycloak-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
+  <script src="/assets/js/config-service.js"></script>
+  <script>
+    const keycloak = new Keycloak(window.KeycloakConfig);
+
+    keycloak.init({
+      onLoad: 'check-sso',
+      pkceMethod: 'S256',
+      flow: 'standard'
+    }).then(authenticated => {
+      if (!authenticated) {
+        keycloak.login({
+          redirectUri: `https://globalsupportteam.com/callback.html?target=/CleverTapGSTInternalHub`
+        });
+      } else {
+        console.log("User authenticated:", keycloak.tokenParsed.preferred_username);
+        document.querySelector('#loading').style.display = 'none';
+        document.querySelector('#content').style.display = 'block';
+      }
+    });
+
+    function logout() {
+      keycloak.logout({
+        redirectUri: 'https://globalsupportteam.com/'
+      });
+    }
+  </script>
+
 </body>
 </html>
