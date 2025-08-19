@@ -9,8 +9,9 @@
 <script>
   const params = new URLSearchParams(window.location.search);
   const target = params.get('target') || '/';
+  console.log(`target is ${target}`)
 
-   const keycloak = new Keycloak(window.KeycloakConfig);
+  const keycloak = new Keycloak(window.KeycloakConfig);
 
   keycloak.init({
     onLoad: 'check-sso',
@@ -18,7 +19,7 @@
     flow: 'standard'
   }).then(authenticated => {
     if (authenticated) {
-      window.location.href = target;
+      window.location.href = "https://globalsupportteam.com"+target;
     } else {
       console.error("Authentication failed");
     }
