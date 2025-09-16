@@ -8,49 +8,29 @@
   <h2 id="loading">Logging in...</h2>
   <div id="content" style="display:none;">
     <iframe 
-      src="" 
+      src="https://script.google.com/a/macros/clevertap.com/s/AKfycbwPXKEDw98xJP-MAvepkw01B1ZkdQE0k3y9-dbGhoOcLLCyp78bFagY5jlXARj79FAO/exec" 
       allowfullscreen
       title="GST Leave Tracker">
     </iframe>
   </div>
 
-<script src="/keycloak-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
 <script src="/assets/js/config-service.js"></script>
 <script>
-  const keycloak = new Keycloak(window.KeycloakConfig);
-
-  keycloak.init({
-    onLoad: 'check-sso',
-    pkceMethod: 'S256',
-    flow: 'standard'
-  }).then(authenticated => {
-    if (!authenticated) {
-      keycloak.login({
-        redirectUri: `https://globalsupportteam.com/callback.html?target=/leave-tracker/`
-      });
-    } else {
-      console.log("User authenticated:", keycloak.tokenParsed.preferred_username);
-
+  document.addEventListener('DOMContentLoaded', function() {
+      console.log("Fetching config service details");
       ConfigService.getAppUrl("leave-tracker")
-        .then(url => {
-          if (url) {
-            document.querySelector('#loading').style.display = 'none';
-            document.querySelector('#content').style.display = 'block';
-            document.querySelector('#content iframe').src = url;
-          } else {
-            console.error("No matching URL found for LeaveTracker");
-          }
-        })
-        .catch(err => console.error("Error fetching app URL:", err));
-    }
-  });
-
-  function logout() {
-    keycloak.logout({
-      redirectUri: 'https://globalsupportteam.com/'
+      .then(url => {
+        if (url) {
+          console.log("setting up url ", url);
+          document.querySelector('#loading').style.display = 'none';
+          document.querySelector('#content').style.display = 'block';
+          document.querySelector('#content iframe').src = url;
+        } else {
+          console.error("No matching URL found for LeaveTracker");
+        }
+      })
+      .catch(err => console.error("Error fetching app URL:", err));
     });
-  }
 </script>
 
 </body>
